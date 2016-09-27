@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "WeatherAPIClient.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[WeatherAPIClient sharedManager] getMelbourneWeather:^(NSDictionary *json, NSError *error) {
+        
+    }];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
