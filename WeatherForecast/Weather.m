@@ -7,6 +7,7 @@
 //
 
 #import "Weather.h"
+#import "WeatherDescription.h"
 
 @implementation Weather
 
@@ -19,8 +20,7 @@
              @"tempHigh" : @"main.temp_max",
              @"tempLow" : @"main.temp_min",
              @"humidity" : @"main.humidity",
-             
-             //@"description" : @"weather[0].description",
+             @"weatherDescription" : @"weather",
              @"rainingPercentage" : @"rain.3h",
              @"windSpeed" : @"wind.speed"
     };
@@ -36,6 +36,10 @@
     }];
 }
 
++ (NSValueTransformer *)weatherDescriptionTransformer
+{
+    return [MTLJSONAdapter arrayTransformerWithModelClass:[WeatherDescription class]];
+}
 
 
 @end

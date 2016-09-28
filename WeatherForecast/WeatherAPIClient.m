@@ -69,7 +69,7 @@ NSString* const APP_ID = @"c00917c0051ef0413b0ffe7c4326bd7e";
        stringByReplacingOccurrencesOfString:CITY_ID_API_FOO_PATH withString:CITY_ID_MELBOURNE]
       stringByReplacingOccurrencesOfString:METRIC_API_FOO_PATH withString:METRIC]
      stringByReplacingOccurrencesOfString:APP_ID_FOO_API_PATH withString:APP_ID];
-    NSLog(@"urlStr123: %@",urlStr);
+    //NSLog(@"urlStr123: %@",urlStr);
     NSURL *url = [NSURL URLWithString:urlStr];
     
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

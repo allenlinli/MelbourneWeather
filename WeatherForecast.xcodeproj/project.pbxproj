@@ -20,6 +20,7 @@
 		E90BFB971D99D02D00FCE43C /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB961D99D02D00FCE43C /* Weather.m */; };
 		E90BFBCB1D99F29A00FCE43C /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBCA1D99F29A00FCE43C /* WeatherManager.m */; };
 		E90BFBCE1D9A51D600FCE43C /* MTLJSONAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */; };
+		E90BFBD11D9BB6F700FCE43C /* WeatherDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		E90BFBC91D99F29A00FCE43C /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherManager.h; sourceTree = "<group>"; };
 		E90BFBCA1D99F29A00FCE43C /* WeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherManager.m; sourceTree = "<group>"; };
 		E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLJSONAdapterTests.m; sourceTree = "<group>"; };
+		E90BFBCF1D9BB6F700FCE43C /* WeatherDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDescription.h; sourceTree = "<group>"; };
+		E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDescription.m; sourceTree = "<group>"; };
 		E93E1AB8A0519E772CA0AE3F /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1CB36567C406041DF783C4 /* libPods-WeatherForecastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,6 +176,8 @@
 			children = (
 				E90BFB951D99D02D00FCE43C /* Weather.h */,
 				E90BFB961D99D02D00FCE43C /* Weather.m */,
+				E90BFBCF1D9BB6F700FCE43C /* WeatherDescription.h */,
+				E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				E90BFB6D1D99C71E00FCE43C /* AppDelegate.m in Sources */,
 				E90BFBCB1D99F29A00FCE43C /* WeatherManager.m in Sources */,
 				E90BFB6A1D99C71E00FCE43C /* main.m in Sources */,
+				E90BFBD11D9BB6F700FCE43C /* WeatherDescription.m in Sources */,
 				E90BFB931D99CA4900FCE43C /* WeatherAPIClient.m in Sources */,
 				E90BFB971D99D02D00FCE43C /* Weather.m in Sources */,
 			);

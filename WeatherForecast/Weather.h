@@ -19,14 +19,8 @@
 @property (nonatomic, strong) NSNumber *tempLow;
 @property (nonatomic, strong) NSNumber *humidity;
 @property (nonatomic, strong) NSNumber *rainingPercentage;
-//@property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSNumber *windSpeed;
-
-
-- (BOOL)isEqual:(id)anObject;
-- (void)hash;
-
-
+@property (nonatomic, strong) NSArray *weatherDescription;
 
 @end
 
