@@ -48,7 +48,7 @@ NSString * const NSErrorDomainWeatherManager = @"NSErrorDomainWeatherManager";
             
             //NSLog(@"obj123:%@",obj);
             Weather *weather =  [MTLJSONAdapter modelOfClass:[Weather class] fromJSONDictionary:(NSDictionary *)obj error:&errorInMTLJSONAdapter];
-            NSLog(@"weather123: %@",weather);
+            //NSLog(@"weather123: %@",weather);
             
             if (errorInMTLJSONAdapter) {
                 NSLog(@"error in MTLJSONAdapter : %@",errorInMTLJSONAdapter);
