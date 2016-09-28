@@ -16,6 +16,7 @@ typedef void (^WeatherAPIClientCompletionHandler)(NSDictionary *json, NSError *e
 + (id)sharedManager;
 
 // [Comment] I didn't attatch Weather to WeatherAPIClient to have extra dependency for easier expandsion in the future.
-- (void) getMelbourneWeather:(WeatherAPIClientCompletionHandler) handler;
+- (void)getForecastWeather:(WeatherAPIClientCompletionHandler) handler;
+- (void)getCurrentWeather:(WeatherAPIClientCompletionHandler) handler;
 
 @end

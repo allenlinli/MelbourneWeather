@@ -7,21 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle.h>
 
 // [Comment] I am not sure if making Weather a struct is better or not.
 
-@interface Weather : NSObject
+@interface Weather : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) NSNumber *humidity;
 @property (nonatomic, strong) NSNumber *temperature;
 @property (nonatomic, strong) NSNumber *tempHigh;
 @property (nonatomic, strong) NSNumber *tempLow;
-@property (nonatomic, strong) NSString *locationName;
-@property (nonatomic, strong) NSString *conditionDescription;
-@property (nonatomic, strong) NSString *condition;
+@property (nonatomic, strong) NSNumber *humidity;
+@property (nonatomic, strong) NSNumber *rainingPercentage;
+//@property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSNumber *windSpeed;
-@property (nonatomic, strong) NSString *icon;
+
+
+- (BOOL)isEqual:(id)anObject;
+- (void)hash;
+
 
 
 @end

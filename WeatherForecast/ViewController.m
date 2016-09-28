@@ -7,21 +7,21 @@
 //
 
 #import "ViewController.h"
-#import "WeatherAPIClient.h"
+#import "WeatherManager.h"
+#import <Mantle.h>
 
 @interface ViewController ()
-
+@property Weather *weather;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [[WeatherAPIClient sharedManager] getMelbourneWeather:^(NSDictionary *json, NSError *error) {
-        
+
+    [[WeatherManager sharedManager] updateMelbourneWeather:^(NSError *error) {
+        // [Comment] hint user about error
     }];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 
@@ -29,6 +29,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end

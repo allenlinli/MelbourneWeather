@@ -19,6 +19,7 @@
 		E90BFB931D99CA4900FCE43C /* WeatherAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB921D99CA4900FCE43C /* WeatherAPIClient.m */; };
 		E90BFB971D99D02D00FCE43C /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB961D99D02D00FCE43C /* Weather.m */; };
 		E90BFBCB1D99F29A00FCE43C /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBCA1D99F29A00FCE43C /* WeatherManager.m */; };
+		E90BFBCE1D9A51D600FCE43C /* MTLJSONAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		E90BFB961D99D02D00FCE43C /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		E90BFBC91D99F29A00FCE43C /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherManager.h; sourceTree = "<group>"; };
 		E90BFBCA1D99F29A00FCE43C /* WeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherManager.m; sourceTree = "<group>"; };
+		E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLJSONAdapterTests.m; sourceTree = "<group>"; };
 		E93E1AB8A0519E772CA0AE3F /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1CB36567C406041DF783C4 /* libPods-WeatherForecastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				E90BFB821D99C71F00FCE43C /* WeatherForecastTests.m */,
+				E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */,
 				E90BFB841D99C71F00FCE43C /* Info.plist */,
 			);
 			path = WeatherForecastTests;
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E90BFB831D99C71F00FCE43C /* WeatherForecastTests.m in Sources */,
+				E90BFBCE1D9A51D600FCE43C /* MTLJSONAdapterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

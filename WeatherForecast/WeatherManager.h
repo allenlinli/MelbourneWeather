@@ -9,8 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "Weather.h"
 
-typedef void (^WeatherManagerCompletionHandler)(Weather *weather, NSError *error);
+extern NSString * const NSErrorDomainWeatherManager;
+
+typedef void (^WeatherManagerCompletionHandler)(NSError *error);
 
 @interface WeatherManager : NSObject
-- (Weather *) getWeather:(WeatherManagerCompletionHandler) handler;
++ (id)sharedManager;
+
+@property (strong, nonatomic) NSDate *lastUpdateTime;
+@property (strong, nonatomic) NSArray *weathers;
+
+- (void)updateMelbourneWeather:(WeatherManagerCompletionHandler) handler;
 @end
