@@ -21,8 +21,8 @@
 NSString* const WEATHER_API_BASE = @"http://api.openweathermap.org/data/2.5/<TYPE_API_FOO_PATH>?id=<CITY_ID_API_FOO_PATH>&<METRIC_API_FOO_PATH>&APPID=<APP_ID_FOO_API_PATH>";
 
 NSString* const TYPE_API_FOO_PATH = @"<TYPE_API_FOO_PATH>";
-NSString* const FORECAST = @"forecast";
-NSString* const CURRENT = @"weather";
+NSString* const TYPE_API_FORECAST = @"forecast";
+NSString* const TYPE_API_CURRENT = @"weather";
 
 NSString* const CITY_ID_API_FOO_PATH = @"<CITY_ID_API_FOO_PATH>";
 NSString* const CITY_ID_MELBOURNE = @"2158177";
@@ -56,21 +56,9 @@ NSString* const APP_ID = @"c00917c0051ef0413b0ffe7c4326bd7e";
     return self;
 }
 
-- (void)getCurrentWeather:(WeatherAPIClientCompletionHandler) handler
+- (void)getCurrentMelbourneWeather:(void(^)(Weather *weather, NSError *error)) handler
 {
-    
-}
-
-- (void)getForecastWeather:(WeatherAPIClientCompletionHandler) handler
-{
-    NSString *urlStr =
-    [[[[WEATHER_API_BASE
-        stringByReplacingOccurrencesOfString:TYPE_API_FOO_PATH withString:FORECAST]
-       stringByReplacingOccurrencesOfString:CITY_ID_API_FOO_PATH withString:CITY_ID_MELBOURNE]
-      stringByReplacingOccurrencesOfString:METRIC_API_FOO_PATH withString:METRIC]
-     stringByReplacingOccurrencesOfString:APP_ID_FOO_API_PATH withString:APP_ID];
-    //NSLog(@"urlStr123: %@",urlStr);
-    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURL *url = [[self class] getURLFromWeatherTypeString:TYPE_API_CURRENT cityID:CITY_ID_MELBOURNE];
     
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
@@ -82,7 +70,41 @@ NSString* const APP_ID = @"c00917c0051ef0413b0ffe7c4326bd7e";
         NSError *errorInJson;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&errorInJson];
         
-        //NSLog(@"json123: %@",json);
+        if (errorInJson) {
+            NSLog(@"error in JSONObjectWithData:%@",error);
+            handler(nil,errorInJson);
+            return;
+        }
+        
+        NSError *errorInMTLJSONAdapter = nil;
+        Weather *weather =  [MTLJSONAdapter modelOfClass:[Weather class] fromJSONDictionary:(NSDictionary *)json error:&errorInMTLJSONAdapter];
+        NSLog(@"weather123: %@",weather);
+        
+        if (errorInMTLJSONAdapter) {
+            NSLog(@"error in MTLJSONAdapter : %@",errorInMTLJSONAdapter);
+            handler(nil, errorInMTLJSONAdapter);
+            return;
+        }
+        
+        handler(weather,nil);
+    }];
+    
+    [dataTask resume];
+}
+
+- (void)getForecastMelbourneWeather:(void(^)(NSArray *weathers, NSError *error)) handler
+{
+    NSURL *url = [[self class] getURLFromWeatherTypeString:TYPE_API_FORECAST cityID:CITY_ID_MELBOURNE];
+    
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"error in getMelbourneWeather:%@",error);
+            handler(nil,error);
+            return;
+        }
+        
+        NSError *errorInJson;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&errorInJson];
         
         if (errorInJson) {
             NSLog(@"error in JSONObjectWithData:%@",error);
@@ -90,12 +112,39 @@ NSString* const APP_ID = @"c00917c0051ef0413b0ffe7c4326bd7e";
             return;
         }
         
-        handler(json,nil);
+        NSArray *list = json[@"list"];
+        NSMutableArray *weathers = [[NSMutableArray alloc] initWithCapacity:list.count];
+        [list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSError *errorInMTLJSONAdapter;
+            
+            //NSLog(@"obj123:%@",obj);
+            Weather *weather =  [MTLJSONAdapter modelOfClass:[Weather class] fromJSONDictionary:(NSDictionary *)obj error:&errorInMTLJSONAdapter];
+//            NSLog(@"weather123: %@",weather);
+            
+            if (errorInMTLJSONAdapter) {
+                NSLog(@"error in MTLJSONAdapter : %@",errorInMTLJSONAdapter);
+                handler(nil, errorInMTLJSONAdapter);
+                return;
+            }
+            
+            [weathers addObject:weather];
+        }];
+        
+        handler(weathers,nil);
     }];
     
     [dataTask resume];
 }
 
-
++ (NSURL *)getURLFromWeatherTypeString:(NSString *)weatherTypeString cityID:(NSString *)cityID
+{
+    NSString *urlStr =
+    [[[[WEATHER_API_BASE
+        stringByReplacingOccurrencesOfString:TYPE_API_FOO_PATH withString:weatherTypeString]
+       stringByReplacingOccurrencesOfString:CITY_ID_API_FOO_PATH withString:cityID]
+      stringByReplacingOccurrencesOfString:METRIC_API_FOO_PATH withString:METRIC]
+     stringByReplacingOccurrencesOfString:APP_ID_FOO_API_PATH withString:APP_ID];
+    return [NSURL URLWithString:urlStr];
+}
 
 @end

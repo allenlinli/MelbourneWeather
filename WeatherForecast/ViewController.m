@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "WeatherManager.h"
+#import "WeatherAPIClient.h"
 #import <Mantle.h>
 
 @interface ViewController ()
@@ -19,8 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[WeatherManager sharedManager] updateMelbourneWeather:^(NSError *error) {
-        // [Comment] hint user about error
+    [[WeatherAPIClient sharedManager] getCurrentMelbourneWeather:^(Weather *weather, NSError *error) {
+        
     }];
 }
 

@@ -9,14 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Weather.h"
 
-typedef void (^WeatherAPIClientCompletionHandler)(NSDictionary *json, NSError *error);
-
 @interface WeatherAPIClient : NSObject
 
 + (id)sharedManager;
 
-// [Comment] I didn't attatch Weather to WeatherAPIClient to have extra dependency for easier expandsion in the future.
-- (void)getForecastWeather:(WeatherAPIClientCompletionHandler) handler;
-- (void)getCurrentWeather:(WeatherAPIClientCompletionHandler) handler;
+- (void)getCurrentMelbourneWeather:(void(^)(Weather *weather, NSError *error)) handler;
+- (void)getForecastMelbourneWeather:(void(^)(NSArray *weathers, NSError *error)) handler;
 
 @end
