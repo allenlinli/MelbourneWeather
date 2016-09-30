@@ -20,6 +20,12 @@
 		E90BFB971D99D02D00FCE43C /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB961D99D02D00FCE43C /* Weather.m */; };
 		E90BFBCE1D9A51D600FCE43C /* MTLJSONAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */; };
 		E90BFBD11D9BB6F700FCE43C /* WeatherDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */; };
+		E90BFBD41D9DCAAA00FCE43C /* WeatherRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBD31D9DCAAA00FCE43C /* WeatherRealm.m */; };
+		E90BFBD71D9DD20E00FCE43C /* WeatherDescriptionRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBD61D9DD20E00FCE43C /* WeatherDescriptionRealm.m */; };
+		E93D464F1D9E1BF90092D0DB /* CurrentWeatherRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E93D464E1D9E1BF90092D0DB /* CurrentWeatherRealm.m */; };
+		E93D46521D9E1C200092D0DB /* CurrentWeatherDescriptionRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E93D46511D9E1C200092D0DB /* CurrentWeatherDescriptionRealm.m */; };
+		E93D46561D9E1DEB0092D0DB /* HourForecastWeatherDescriptionRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E93D46551D9E1DEB0092D0DB /* HourForecastWeatherDescriptionRealm.m */; };
+		E93D46591D9E1E0B0092D0DB /* HourForecastWeatherRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E93D46581D9E1E0B0092D0DB /* HourForecastWeatherRealm.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,18 @@
 		E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLJSONAdapterTests.m; sourceTree = "<group>"; };
 		E90BFBCF1D9BB6F700FCE43C /* WeatherDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDescription.h; sourceTree = "<group>"; };
 		E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDescription.m; sourceTree = "<group>"; };
+		E90BFBD21D9DCAAA00FCE43C /* WeatherRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherRealm.h; sourceTree = "<group>"; };
+		E90BFBD31D9DCAAA00FCE43C /* WeatherRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherRealm.m; sourceTree = "<group>"; };
+		E90BFBD51D9DD20E00FCE43C /* WeatherDescriptionRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDescriptionRealm.h; sourceTree = "<group>"; };
+		E90BFBD61D9DD20E00FCE43C /* WeatherDescriptionRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDescriptionRealm.m; sourceTree = "<group>"; };
+		E93D464D1D9E1BF90092D0DB /* CurrentWeatherRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeatherRealm.h; sourceTree = "<group>"; };
+		E93D464E1D9E1BF90092D0DB /* CurrentWeatherRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeatherRealm.m; sourceTree = "<group>"; };
+		E93D46501D9E1C200092D0DB /* CurrentWeatherDescriptionRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeatherDescriptionRealm.h; sourceTree = "<group>"; };
+		E93D46511D9E1C200092D0DB /* CurrentWeatherDescriptionRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeatherDescriptionRealm.m; sourceTree = "<group>"; };
+		E93D46541D9E1DEB0092D0DB /* HourForecastWeatherDescriptionRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourForecastWeatherDescriptionRealm.h; sourceTree = "<group>"; };
+		E93D46551D9E1DEB0092D0DB /* HourForecastWeatherDescriptionRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourForecastWeatherDescriptionRealm.m; sourceTree = "<group>"; };
+		E93D46571D9E1E0B0092D0DB /* HourForecastWeatherRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourForecastWeatherRealm.h; sourceTree = "<group>"; };
+		E93D46581D9E1E0B0092D0DB /* HourForecastWeatherRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourForecastWeatherRealm.m; sourceTree = "<group>"; };
 		E93E1AB8A0519E772CA0AE3F /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1CB36567C406041DF783C4 /* libPods-WeatherForecastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,13 +142,8 @@
 		E90BFB671D99C71E00FCE43C /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
-				E90BFB6B1D99C71E00FCE43C /* AppDelegate.h */,
-				E90BFB6C1D99C71E00FCE43C /* AppDelegate.m */,
-				E90BFB6E1D99C71E00FCE43C /* ViewController.h */,
-				E90BFB6F1D99C71E00FCE43C /* ViewController.m */,
 				E90BFB711D99C71E00FCE43C /* Main.storyboard */,
-				E90BFB741D99C71E00FCE43C /* Assets.xcassets */,
-				E90BFB761D99C71E00FCE43C /* LaunchScreen.storyboard */,
+				E90BFBDA1D9DE55000FCE43C /* VC */,
 				E90BFBCC1D99F2AB00FCE43C /* Model */,
 				E90BFB941D99CA4D00FCE43C /* Manager */,
 				E90BFB791D99C71E00FCE43C /* Info.plist */,
@@ -142,6 +155,10 @@
 		E90BFB681D99C71E00FCE43C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E90BFB6B1D99C71E00FCE43C /* AppDelegate.h */,
+				E90BFB6C1D99C71E00FCE43C /* AppDelegate.m */,
+				E90BFB741D99C71E00FCE43C /* Assets.xcassets */,
+				E90BFB761D99C71E00FCE43C /* LaunchScreen.storyboard */,
 				E90BFB691D99C71E00FCE43C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -169,12 +186,57 @@
 		E90BFBCC1D99F2AB00FCE43C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E90BFBD91D9DD23300FCE43C /* Mantle */,
+				E90BFBD81D9DD22900FCE43C /* Realm */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E90BFBD81D9DD22900FCE43C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				E93D46531D9E1D830092D0DB /* Parent */,
+				E93D464D1D9E1BF90092D0DB /* CurrentWeatherRealm.h */,
+				E93D464E1D9E1BF90092D0DB /* CurrentWeatherRealm.m */,
+				E93D46501D9E1C200092D0DB /* CurrentWeatherDescriptionRealm.h */,
+				E93D46511D9E1C200092D0DB /* CurrentWeatherDescriptionRealm.m */,
+				E93D46571D9E1E0B0092D0DB /* HourForecastWeatherRealm.h */,
+				E93D46581D9E1E0B0092D0DB /* HourForecastWeatherRealm.m */,
+				E93D46541D9E1DEB0092D0DB /* HourForecastWeatherDescriptionRealm.h */,
+				E93D46551D9E1DEB0092D0DB /* HourForecastWeatherDescriptionRealm.m */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
+		E90BFBD91D9DD23300FCE43C /* Mantle */ = {
+			isa = PBXGroup;
+			children = (
 				E90BFB951D99D02D00FCE43C /* Weather.h */,
 				E90BFB961D99D02D00FCE43C /* Weather.m */,
 				E90BFBCF1D9BB6F700FCE43C /* WeatherDescription.h */,
 				E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */,
 			);
-			name = Model;
+			name = Mantle;
+			sourceTree = "<group>";
+		};
+		E90BFBDA1D9DE55000FCE43C /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				E90BFB6E1D99C71E00FCE43C /* ViewController.h */,
+				E90BFB6F1D99C71E00FCE43C /* ViewController.m */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
+		E93D46531D9E1D830092D0DB /* Parent */ = {
+			isa = PBXGroup;
+			children = (
+				E90BFBD21D9DCAAA00FCE43C /* WeatherRealm.h */,
+				E90BFBD31D9DCAAA00FCE43C /* WeatherRealm.m */,
+				E90BFBD51D9DD20E00FCE43C /* WeatherDescriptionRealm.h */,
+				E90BFBD61D9DD20E00FCE43C /* WeatherDescriptionRealm.m */,
+			);
+			name = Parent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,9 +443,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E90BFB701D99C71E00FCE43C /* ViewController.m in Sources */,
+				E90BFBD71D9DD20E00FCE43C /* WeatherDescriptionRealm.m in Sources */,
 				E90BFB6D1D99C71E00FCE43C /* AppDelegate.m in Sources */,
+				E90BFBD41D9DCAAA00FCE43C /* WeatherRealm.m in Sources */,
 				E90BFB6A1D99C71E00FCE43C /* main.m in Sources */,
+				E93D46561D9E1DEB0092D0DB /* HourForecastWeatherDescriptionRealm.m in Sources */,
 				E90BFBD11D9BB6F700FCE43C /* WeatherDescription.m in Sources */,
+				E93D46591D9E1E0B0092D0DB /* HourForecastWeatherRealm.m in Sources */,
+				E93D46521D9E1C200092D0DB /* CurrentWeatherDescriptionRealm.m in Sources */,
+				E93D464F1D9E1BF90092D0DB /* CurrentWeatherRealm.m in Sources */,
 				E90BFB931D99CA4900FCE43C /* WeatherAPIClient.m in Sources */,
 				E90BFB971D99D02D00FCE43C /* Weather.m in Sources */,
 			);

@@ -1,16 +1,23 @@
 //
-//  WeatherDescription.h
+//  WeatherDescriptionRealm.h
 //  WeatherForecast
 //
-//  Created by allenlinli on 9/28/16.
+//  Created by allenlinli on 9/30/16.
 //  Copyright © 2016 Raccoonism. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import "WeatherDescription.h"
+#import <Realm/Realm.h>
 
-@interface WeatherDescription : MTLModel <MTLJSONSerializing>
+@interface WeatherDescriptionRealm : RLMObject
+
 @property (strong, nonatomic) NSString *identifier;
 @property (strong, nonatomic) NSString *main;
 @property (strong, nonatomic) NSString *weatherDescription;
 @property (strong, nonatomic) NSString *icon;
+
+- (id)initWithMantleModel:(WeatherDescription *)weatherDescription;
+
 @end
+
+RLM_ARRAY_TYPE(WeatherDescriptionRealm)

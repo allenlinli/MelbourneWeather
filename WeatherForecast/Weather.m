@@ -20,7 +20,7 @@
              @"tempHigh" : @"main.temp_max",
              @"tempLow" : @"main.temp_min",
              @"humidity" : @"main.humidity",
-             @"weatherDescription" : @"weather",
+             @"weatherDescriptions" : @"weather",
              @"rainingPercentage" : @"rain.3h",
              @"windSpeed" : @"wind.speed"
     };
@@ -40,6 +40,5 @@
 {
     return [MTLJSONAdapter arrayTransformerWithModelClass:[WeatherDescription class]];
 }
-
 
 @end

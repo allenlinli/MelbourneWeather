@@ -2,6 +2,7 @@
 # platform :ios, '9.0'
 
 pod 'Mantle', '~> 2.0.7'
+pod 'Realm', '~> 1.0.2'
 
 target 'WeatherForecast' do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks

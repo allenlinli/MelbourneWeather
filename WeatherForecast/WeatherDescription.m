@@ -9,6 +9,7 @@
 #import "WeatherDescription.h"
 
 @implementation WeatherDescription
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
