@@ -62,7 +62,10 @@
                     CurrentWeatherDescriptionRealm *currentWeatherDescriptionRealm = [[CurrentWeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription];
                     [currentWeatherDescriptionRealmArray addObject:currentWeatherDescriptionRealm];
                 }
-                [currentWeatherRealm.weatherDescriptions addObjects:currentWeatherDescriptionRealmArray];
+                if (currentWeatherDescriptionRealmArray.count != 0) {
+                    [currentWeatherRealm.weatherDescriptions addObjects:currentWeatherDescriptionRealmArray];
+                }
+                
                 [realm addObjects:currentWeatherDescriptionRealmArray];
                 [realm addObject:currentWeatherRealm];
                 

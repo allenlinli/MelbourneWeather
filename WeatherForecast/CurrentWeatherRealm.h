@@ -7,7 +7,10 @@
 //
 
 #import "WeatherRealm.h"
+#import "CurrentWeatherDescriptionRealm.h"
 
 @interface CurrentWeatherRealm : WeatherRealm
 
+@property RLMArray<CurrentWeatherDescriptionRealm *><CurrentWeatherDescriptionRealm> *weatherDescriptions;
 @end
+

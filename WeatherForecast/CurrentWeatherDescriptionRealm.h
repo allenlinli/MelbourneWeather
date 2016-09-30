@@ -11,3 +11,5 @@
 @interface CurrentWeatherDescriptionRealm : WeatherDescriptionRealm
 
 @end
+
+RLM_ARRAY_TYPE(CurrentWeatherDescriptionRealm)

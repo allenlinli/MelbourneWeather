@@ -9,7 +9,7 @@
 #import <Mantle/Mantle.h>
 
 @interface WeatherDescription : MTLModel <MTLJSONSerializing>
-@property (strong, nonatomic) NSString *identifier;
+@property (strong, nonatomic) NSNumber *identifier;
 @property (strong, nonatomic) NSString *main;
 @property (strong, nonatomic) NSString *weatherDescription;
 @property (strong, nonatomic) NSString *icon;

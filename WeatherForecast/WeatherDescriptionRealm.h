@@ -11,7 +11,7 @@
 
 @interface WeatherDescriptionRealm : RLMObject
 
-@property (strong, nonatomic) NSString *identifier;
+@property (strong, nonatomic) NSNumber<RLMInt> *identifier;
 @property (strong, nonatomic) NSString *main;
 @property (strong, nonatomic) NSString *weatherDescription;
 @property (strong, nonatomic) NSString *icon;
