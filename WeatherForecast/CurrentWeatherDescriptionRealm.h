@@ -8,8 +8,9 @@
 
 #import "WeatherDescriptionRealm.h"
 
-@interface CurrentWeatherDescriptionRealm : WeatherDescriptionRealm
-
+@interface CurrentWeatherDescriptionRealm : RLMObject
+@property (strong, nonatomic) WeatherDescriptionRealm *weatherDescriptionRealm;
+- (id)initWithMantleModel:(WeatherDescription *)weatherDescription;
 @end
 
 RLM_ARRAY_TYPE(CurrentWeatherDescriptionRealm)

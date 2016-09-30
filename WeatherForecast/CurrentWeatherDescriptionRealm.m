@@ -10,4 +10,13 @@
 
 @implementation CurrentWeatherDescriptionRealm
 
+- (id)initWithMantleModel:(WeatherDescription *)weatherDescription{
+    self = [super init];
+    if(!self) return nil;
+    
+    self.weatherDescriptionRealm = [[WeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription];
+    
+    return self;
+}
+
 @end

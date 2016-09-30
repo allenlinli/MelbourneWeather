@@ -56,21 +56,26 @@
                 [realm beginWriteTransaction];
                 CurrentWeatherRealm *currentWeatherRealm = [[CurrentWeatherRealm alloc] initWithMantleModel:weather];
                 
-//                 ArticleListResponseModel *list = [MTLJSONAdapter modelOfClass:ArticleListResponseModel.class fromJSONDictionary:weather error:nil];
-                NSMutableArray *currentWeatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:currentWeatherRealm.weatherDescriptions.count];
+                NSMutableArray *currentWeatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:currentWeatherRealm.currentWeatherDescriptionRealms.count];
                 for (WeatherDescription *weatherDescription in weather.weatherDescriptions) {
                     CurrentWeatherDescriptionRealm *currentWeatherDescriptionRealm = [[CurrentWeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription];
                     [currentWeatherDescriptionRealmArray addObject:currentWeatherDescriptionRealm];
                 }
                 if (currentWeatherDescriptionRealmArray.count != 0) {
-                    [currentWeatherRealm.weatherDescriptions addObjects:currentWeatherDescriptionRealmArray];
+                    [currentWeatherRealm.currentWeatherDescriptionRealms addObjects:currentWeatherDescriptionRealmArray];
+                    [realm addObjects:currentWeatherDescriptionRealmArray];
                 }
                 
-                [realm addObjects:currentWeatherDescriptionRealmArray];
                 [realm addObject:currentWeatherRealm];
                 
                 NSError *realmError;
                 [realm commitWriteTransaction:&realmError];
+                
+                RLMResults<CurrentWeatherDescriptionRealm *> *newCurrentWeatherDescriptionRealms = [CurrentWeatherDescriptionRealm allObjects];
+                NSLog(@"[newCurrentWeatherDescriptionRealms firstObject]:%@",(CurrentWeatherDescriptionRealm *)[newCurrentWeatherDescriptionRealms firstObject]);
+                
+                RLMResults<CurrentWeatherRealm *> *newCurrentWeatherRealms = [CurrentWeatherRealm allObjects];
+                NSLog(@"[newCurrentWeatherRealms firstObject]:%@",(CurrentWeatherRealm *)[newCurrentWeatherRealms firstObject]);
                 
                 if (realmError) {
                     dispatch_async(dispatch_get_main_queue(), ^{

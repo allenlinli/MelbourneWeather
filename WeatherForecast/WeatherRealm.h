@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSNumber<RLMFloat> *rainingPercentage;
 @property (nonatomic, strong) NSNumber<RLMFloat> *windSpeed;
 
-@property RLMArray<WeatherDescriptionRealm *><WeatherDescriptionRealm> *weatherDescriptions;
+@property RLMArray<WeatherDescriptionRealm *><WeatherDescriptionRealm> *weatherDescriptionRealms;
 
 - (id)initWithMantleModel:(Weather *)weather;
 

@@ -9,8 +9,11 @@
 #import "WeatherRealm.h"
 #import "CurrentWeatherDescriptionRealm.h"
 
-@interface CurrentWeatherRealm : WeatherRealm
+@interface CurrentWeatherRealm : RLMObject
+@property (strong, nonatomic) WeatherRealm *weatherRealm;
 
-@property RLMArray<CurrentWeatherDescriptionRealm *><CurrentWeatherDescriptionRealm> *weatherDescriptions;
+@property (strong, nonatomic) RLMArray<CurrentWeatherDescriptionRealm *><CurrentWeatherDescriptionRealm> *currentWeatherDescriptionRealms;
+
+- (id)initWithMantleModel:(Weather *)weather;
 @end
 
