@@ -51,19 +51,19 @@
                 RLMResults<CurrentWeatherDescriptionRealm *> *oldCurrentWeatherDescriptionRealms = [CurrentWeatherDescriptionRealm allObjects];
                 [realm deleteObjects:oldCurrentWeatherRealms];
                 [realm deleteObjects:oldCurrentWeatherDescriptionRealms];
+                [realm commitWriteTransaction];
                 
-                
+                [realm beginWriteTransaction];
                 CurrentWeatherRealm *currentWeatherRealm = [[CurrentWeatherRealm alloc] initWithMantleModel:weather];
-                NSLog(@"currentWeatherRealm.weatherDescriptions.count: %lu",(unsigned long)currentWeatherRealm.weatherDescriptions.count);
                 
-                
-                NSMutableArray *weatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:currentWeatherRealm.weatherDescriptions.count];
+//                 ArticleListResponseModel *list = [MTLJSONAdapter modelOfClass:ArticleListResponseModel.class fromJSONDictionary:weather error:nil];
+                NSMutableArray *currentWeatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:currentWeatherRealm.weatherDescriptions.count];
                 for (WeatherDescription *weatherDescription in weather.weatherDescriptions) {
                     CurrentWeatherDescriptionRealm *currentWeatherDescriptionRealm = [[CurrentWeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription];
-                    [weatherDescriptionRealmArray addObject:currentWeatherDescriptionRealm];
+                    [currentWeatherDescriptionRealmArray addObject:currentWeatherDescriptionRealm];
                 }
-                [currentWeatherRealm.weatherDescriptions addObjects:weatherDescriptionRealmArray];
-                [realm addObjects:weatherDescriptionRealmArray];
+                [currentWeatherRealm.weatherDescriptions addObjects:currentWeatherDescriptionRealmArray];
+                [realm addObjects:currentWeatherDescriptionRealmArray];
                 [realm addObject:currentWeatherRealm];
                 
                 NSError *realmError;

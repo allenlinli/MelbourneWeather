@@ -36,9 +36,10 @@
     }];
 }
 
-+ (NSValueTransformer *)weatherDescriptionTransformer
++ (NSValueTransformer *)weatherDescriptionsJSONTransformer
 {
     return [MTLJSONAdapter arrayTransformerWithModelClass:[WeatherDescription class]];
 }
+
 
 @end

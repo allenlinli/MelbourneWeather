@@ -20,6 +20,6 @@
 @property (nonatomic, strong) NSNumber *humidity;
 @property (nonatomic, strong) NSNumber *rainingPercentage;
 @property (nonatomic, strong) NSNumber *windSpeed;
-@property (nonatomic, strong) NSArray *weatherDescriptions;
+@property (nonatomic, copy) NSArray *weatherDescriptions;
 
 @end
