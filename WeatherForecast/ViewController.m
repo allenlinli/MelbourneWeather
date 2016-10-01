@@ -88,6 +88,57 @@
         });
     }];
     
+    [[WeatherAPIClient sharedManager] getForecastMelbourneWeather:^(NSArray *weathers, NSError *error) {
+        if (error) {
+            //show user error
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            @autoreleasepool {
+                RLMRealm *realm = [RLMRealm defaultRealm];
+                
+                [realm beginWriteTransaction];
+                RLMResults<CurrentWeatherRealm *> *oldCurrentWeatherRealms = [CurrentWeatherRealm allObjects];
+                RLMResults<CurrentWeatherDescriptionRealm *> *oldCurrentWeatherDescriptionRealms = [CurrentWeatherDescriptionRealm allObjects];
+                [realm deleteObjects:oldCurrentWeatherRealms];
+                [realm deleteObjects:oldCurrentWeatherDescriptionRealms];
+                [realm commitWriteTransaction];
+                
+                [realm beginWriteTransaction];
+                CurrentWeatherRealm *currentWeatherRealm = [[CurrentWeatherRealm alloc] initWithMantleModel:weather];
+                
+                NSMutableArray *currentWeatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:currentWeatherRealm.currentWeatherDescriptionRealms.count];
+                for (WeatherDescription *weatherDescription in weather.weatherDescriptions) {
+                    CurrentWeatherDescriptionRealm *currentWeatherDescriptionRealm = [[CurrentWeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription];
+                    [currentWeatherDescriptionRealmArray addObject:currentWeatherDescriptionRealm];
+                }
+                if (currentWeatherDescriptionRealmArray.count != 0) {
+                    [currentWeatherRealm.currentWeatherDescriptionRealms addObjects:currentWeatherDescriptionRealmArray];
+                    [realm addObjects:currentWeatherDescriptionRealmArray];
+                }
+                
+                [realm addObject:currentWeatherRealm];
+                
+                NSError *realmError;
+                [realm commitWriteTransaction:&realmError];
+                
+                RLMResults<CurrentWeatherDescriptionRealm *> *newCurrentWeatherDescriptionRealms = [CurrentWeatherDescriptionRealm allObjects];
+                NSLog(@"[newCurrentWeatherDescriptionRealms firstObject]:%@",(CurrentWeatherDescriptionRealm *)[newCurrentWeatherDescriptionRealms firstObject]);
+                
+                RLMResults<CurrentWeatherRealm *> *newCurrentWeatherRealms = [CurrentWeatherRealm allObjects];
+                NSLog(@"[newCurrentWeatherRealms firstObject]:%@",(CurrentWeatherRealm *)[newCurrentWeatherRealms firstObject]);
+                
+                if (realmError) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //hint user error
+                        NSLog(@"realmError: %@",realmError);
+                    });
+                    return;
+                }
+            }
+        });
+    }];
+    
 //    [[WeatherAPIClient sharedManager] getForecastMelbourneWeather:^(NSArray *weathers, NSError *error) {
 //        
 //        if (error) {
