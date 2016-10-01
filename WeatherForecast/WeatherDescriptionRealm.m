@@ -14,10 +14,20 @@
     self = [super init];
     if(!self) return nil;
     
-    self.identifier = weatherDescription.identifier;
-    self.main = weatherDescription.main;
-    self.weatherDescription = weatherDescription.weatherDescription;
-    self.icon = weatherDescription.icon;
+    _identifier = weatherDescription.identifier;
+    _main = weatherDescription.main;
+    _weatherDescription = weatherDescription.weatherDescription;
+    _icon = weatherDescription.icon;
+    
+    return self;
+}
+
+- (id)initWithMantleModel:(WeatherDescription *)weatherDescription weatherApiType:(WeatherApiType)type
+{
+    self = [self initWithMantleModel:weatherDescription];
+    if(!self) return nil;
+    
+    _weatherApiType = type;
     
     return self;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "WeatherDescription.h"
+#import "Constants.h"
 #import <Realm/Realm.h>
 
 @interface WeatherDescriptionRealm : RLMObject
@@ -15,8 +16,10 @@
 @property (strong, nonatomic) NSString *main;
 @property (strong, nonatomic) NSString *weatherDescription;
 @property (strong, nonatomic) NSString *icon;
+@property (nonatomic, assign) WeatherApiType weatherApiType;
 
 - (id)initWithMantleModel:(WeatherDescription *)weatherDescription;
+- (id)initWithMantleModel:(WeatherDescription *)weatherDescription weatherApiType:(WeatherApiType)type;
 
 @end
 

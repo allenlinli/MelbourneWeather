@@ -14,14 +14,24 @@
     self = [super init];
     if(!self) return nil;
     
-    self.date = weather.date;
-    self.temperature = weather.temperature;
-    self.tempHigh = weather.tempHigh;
-    self.tempLow = weather.tempLow;
-    self.humidity = weather.humidity;
-    self.rainingPercentage = weather.rainingPercentage;
-    self.windSpeed = weather.windSpeed;
+    _date = weather.date;
+    _temperature = weather.temperature;
+    _tempHigh = weather.tempHigh;
+    _tempLow = weather.tempLow;
+    _humidity = weather.humidity;
+    _rainingPercentage = weather.rainingPercentage;
+    _windSpeed = weather.windSpeed;
+    
+    return self;
+}
 
+- (id)initWithMantleModel:(Weather *)weather weatherApiType:(WeatherApiType)type
+{
+    self = [self initWithMantleModel:weather];
+    if(!self) return nil;
+    
+    _weatherApiType = type;
+    
     return self;
 }
 

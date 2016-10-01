@@ -10,10 +10,8 @@
 
 #import "WeatherAPIClient.h"
 
-#import "CurrentWeatherRealm.h"
-#import "CurrentWeatherDescriptionRealm.h"
-#import "HourForecastWeatherRealm.h"
-#import "HourForecastWeatherDescriptionRealm.h"
+#import "WeatherRealm.h"
+#import "WeatherDescriptionRealm.h"
 
 
 #import <Mantle.h>
@@ -37,6 +35,77 @@
         [sSelf.tableView reloadData];
     }];
     
+    [self updateCurrentWeather];
+    [self updateHourForecastWeather];
+}
+
+- (void)updateHourForecastWeather
+{
+    [[WeatherAPIClient sharedManager] getForecastMelbourneWeather:^(NSArray *weathers, NSError *error) {
+        if (error) {
+            //show user error
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+                RLMRealm *realm = [RLMRealm defaultRealm];
+                
+                [realm beginWriteTransaction];
+                NSError *realmError;
+                
+                NSPredicate *pred1 = [NSPredicate predicateWithFormat:@"weatherApiType = %i",WeatherApiTypeForecastHour];
+                RLMResults<WeatherRealm *> *oldWeatherRealms = [WeatherRealm objectsWithPredicate:pred1];
+                
+                RLMResults<WeatherDescriptionRealm *> *oldWeatherDescriptionRealms = [WeatherDescriptionRealm objectsWithPredicate:pred1];
+                NSLog(@"oldHourForecastWeatherRealms123:%@",oldWeatherRealms);
+                NSLog(@"oldHourForecastWeatherDescriptionRealms:%@",oldWeatherDescriptionRealms);
+                
+                [realm deleteObjects:oldWeatherRealms];
+                [realm deleteObjects:oldWeatherDescriptionRealms];
+                
+                [realm commitWriteTransaction:&realmError];
+                if (realmError) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //hint user error
+                        NSLog(@"realmError: %@",realmError);
+                    });
+                    return;
+                }
+            
+            @autoreleasepool {
+                [realm beginWriteTransaction];
+                for (Weather *weather in weathers) {
+                    WeatherRealm *weatherRealm = [[WeatherRealm alloc] initWithMantleModel:weather weatherApiType:WeatherApiTypeForecastHour];
+                    
+                    NSMutableArray *weatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:weatherRealm.weatherDescriptionRealms.count];
+                    for (WeatherDescription *weatherDescription in weather.weatherDescriptions) {
+                        WeatherDescriptionRealm *weatherDescriptionRealm = [[WeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription weatherApiType:WeatherApiTypeForecastHour];
+                        [weatherDescriptionRealmArray addObject:weatherDescriptionRealm];
+                    }
+                    if (weatherDescriptionRealmArray.count != 0) {
+                        [weatherRealm.weatherDescriptionRealms addObjects:weatherDescriptionRealmArray];
+                        [realm addObjects:weatherDescriptionRealmArray];
+                    }
+                    
+                    [realm addObject:weatherRealm];
+                }
+                
+                [realm commitWriteTransaction:&realmError];
+                
+                if (realmError) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //hint user error
+                        NSLog(@"realmError: %@",realmError);
+                    });
+                    return;
+                }
+            }
+        });
+    }];
+}
+
+- (void)updateCurrentWeather
+{
     [[WeatherAPIClient sharedManager] getCurrentMelbourneWeather:^(Weather *weather, NSError *error) {
         if (error) {
             //show user error
@@ -47,36 +116,19 @@
                 RLMRealm *realm = [RLMRealm defaultRealm];
                 
                 [realm beginWriteTransaction];
-                RLMResults<CurrentWeatherRealm *> *oldCurrentWeatherRealms = [CurrentWeatherRealm allObjects];
-                RLMResults<CurrentWeatherDescriptionRealm *> *oldCurrentWeatherDescriptionRealms = [CurrentWeatherDescriptionRealm allObjects];
-                [realm deleteObjects:oldCurrentWeatherRealms];
-                [realm deleteObjects:oldCurrentWeatherDescriptionRealms];
-                [realm commitWriteTransaction];
-                
-                [realm beginWriteTransaction];
-                CurrentWeatherRealm *currentWeatherRealm = [[CurrentWeatherRealm alloc] initWithMantleModel:weather];
-                
-                NSMutableArray *currentWeatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:currentWeatherRealm.currentWeatherDescriptionRealms.count];
-                for (WeatherDescription *weatherDescription in weather.weatherDescriptions) {
-                    CurrentWeatherDescriptionRealm *currentWeatherDescriptionRealm = [[CurrentWeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription];
-                    [currentWeatherDescriptionRealmArray addObject:currentWeatherDescriptionRealm];
-                }
-                if (currentWeatherDescriptionRealmArray.count != 0) {
-                    [currentWeatherRealm.currentWeatherDescriptionRealms addObjects:currentWeatherDescriptionRealmArray];
-                    [realm addObjects:currentWeatherDescriptionRealmArray];
-                }
-                
-                [realm addObject:currentWeatherRealm];
-                
                 NSError *realmError;
+                
+                NSPredicate *pred1 = [NSPredicate predicateWithFormat:@"weatherApiType = %i",WeatherApiTypeCurrent];
+                RLMResults<WeatherRealm *> *oldWeatherRealms = [WeatherRealm objectsWithPredicate:pred1];
+                
+                RLMResults<WeatherDescriptionRealm *> *oldWeatherDescriptionRealms = [WeatherDescriptionRealm objectsWithPredicate:pred1];
+                NSLog(@"oldHourForecastWeatherRealms123:%@",oldWeatherRealms);
+                NSLog(@"oldHourForecastWeatherDescriptionRealms:%@",oldWeatherDescriptionRealms);
+                
+                [realm deleteObjects:oldWeatherRealms];
+                [realm deleteObjects:oldWeatherDescriptionRealms];
+                
                 [realm commitWriteTransaction:&realmError];
-                
-                RLMResults<CurrentWeatherDescriptionRealm *> *newCurrentWeatherDescriptionRealms = [CurrentWeatherDescriptionRealm allObjects];
-                NSLog(@"[newCurrentWeatherDescriptionRealms firstObject]:%@",(CurrentWeatherDescriptionRealm *)[newCurrentWeatherDescriptionRealms firstObject]);
-                
-                RLMResults<CurrentWeatherRealm *> *newCurrentWeatherRealms = [CurrentWeatherRealm allObjects];
-                NSLog(@"[newCurrentWeatherRealms firstObject]:%@",(CurrentWeatherRealm *)[newCurrentWeatherRealms firstObject]);
-                
                 if (realmError) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         //hint user error
@@ -84,49 +136,22 @@
                     });
                     return;
                 }
-            }
-        });
-    }];
-    
-    [[WeatherAPIClient sharedManager] getForecastMelbourneWeather:^(NSArray *weathers, NSError *error) {
-        if (error) {
-            //show user error
-        }
+                
+                [realm beginWriteTransaction];
+                WeatherRealm *currentWeatherRealm = [[WeatherRealm alloc] initWithMantleModel:weather weatherApiType:WeatherApiTypeCurrent];
+                
+                NSMutableArray *currentWeatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:currentWeatherRealm.weatherDescriptionRealms.count];
+                for (WeatherDescription *weatherDescription in weather.weatherDescriptions) {
+                    WeatherDescriptionRealm *currentWeatherDescriptionRealm = [[WeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription weatherApiType:WeatherApiTypeCurrent];
+                    [currentWeatherDescriptionRealmArray addObject:currentWeatherDescriptionRealm];
+                }
+                if (currentWeatherDescriptionRealmArray.count != 0) {
+                    [currentWeatherRealm.weatherDescriptionRealms addObjects:currentWeatherDescriptionRealmArray];
+                    [realm addObjects:currentWeatherDescriptionRealmArray];
+                }
+                [realm addObject:currentWeatherRealm];
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            @autoreleasepool {
-                RLMRealm *realm = [RLMRealm defaultRealm];
-                
-                [realm beginWriteTransaction];
-                RLMResults<CurrentWeatherRealm *> *oldCurrentWeatherRealms = [CurrentWeatherRealm allObjects];
-                RLMResults<CurrentWeatherDescriptionRealm *> *oldCurrentWeatherDescriptionRealms = [CurrentWeatherDescriptionRealm allObjects];
-                [realm deleteObjects:oldCurrentWeatherRealms];
-                [realm deleteObjects:oldCurrentWeatherDescriptionRealms];
-                [realm commitWriteTransaction];
-                
-                [realm beginWriteTransaction];
-                CurrentWeatherRealm *currentWeatherRealm = [[CurrentWeatherRealm alloc] initWithMantleModel:weather];
-                
-                NSMutableArray *currentWeatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:currentWeatherRealm.currentWeatherDescriptionRealms.count];
-                for (WeatherDescription *weatherDescription in weather.weatherDescriptions) {
-                    CurrentWeatherDescriptionRealm *currentWeatherDescriptionRealm = [[CurrentWeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription];
-                    [currentWeatherDescriptionRealmArray addObject:currentWeatherDescriptionRealm];
-                }
-                if (currentWeatherDescriptionRealmArray.count != 0) {
-                    [currentWeatherRealm.currentWeatherDescriptionRealms addObjects:currentWeatherDescriptionRealmArray];
-                    [realm addObjects:currentWeatherDescriptionRealmArray];
-                }
-                
-                [realm addObject:currentWeatherRealm];
-                
-                NSError *realmError;
                 [realm commitWriteTransaction:&realmError];
-                
-                RLMResults<CurrentWeatherDescriptionRealm *> *newCurrentWeatherDescriptionRealms = [CurrentWeatherDescriptionRealm allObjects];
-                NSLog(@"[newCurrentWeatherDescriptionRealms firstObject]:%@",(CurrentWeatherDescriptionRealm *)[newCurrentWeatherDescriptionRealms firstObject]);
-                
-                RLMResults<CurrentWeatherRealm *> *newCurrentWeatherRealms = [CurrentWeatherRealm allObjects];
-                NSLog(@"[newCurrentWeatherRealms firstObject]:%@",(CurrentWeatherRealm *)[newCurrentWeatherRealms firstObject]);
                 
                 if (realmError) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -138,49 +163,6 @@
             }
         });
     }];
-    
-//    [[WeatherAPIClient sharedManager] getForecastMelbourneWeather:^(NSArray *weathers, NSError *error) {
-//        
-//        if (error) {
-//            //show user error
-//        }
-//        
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//            @autoreleasepool {
-//                RLMRealm *realm = [RLMRealm defaultRealm];
-//                
-//                [realm beginWriteTransaction];
-//                RLMResults<HourForecastWeatherRealm *> *oldHourForecastWeatherRealms = [HourForecastWeatherRealm allObjects];
-//                RLMResults<HourForecastWeatherDescriptionRealm *> *oldHourForecastWeatherDescriptionRealms = [HourForecastWeatherDescriptionRealm allObjects];
-//                [realm deleteObjects:oldHourForecastWeatherRealms];
-//                [realm deleteObjects:oldHourForecastWeatherDescriptionRealms];
-//                
-//                for (Weather *weather in weathers) {
-//                    HourForecastWeatherRealm *hourForecastWeatherRealm = [[HourForecastWeatherRealm alloc] initWithMantleModel:weather];
-//                    
-//                    NSMutableArray *weatherDescriptionRealmArray = [[NSMutableArray alloc] initWithCapacity:hourForecastWeatherRealm.weatherDescriptions.count];
-//                    for (WeatherDescription *weatherDescription in weather.weatherDescriptions) {
-//                        HourForecastWeatherDescriptionRealm *forecastWeatherDescriptionRealm = [[HourForecastWeatherDescriptionRealm alloc] initWithMantleModel:weatherDescription];
-//                        [weatherDescriptionRealmArray addObject:forecastWeatherDescriptionRealm];
-//                    }
-//                    [hourForecastWeatherRealm.weatherDescriptions addObjects:weatherDescriptionRealmArray];
-//                    [realm addObjects:weatherDescriptionRealmArray];
-//                    [realm addObject:hourForecastWeatherRealm];
-//                }
-//                
-//                NSError *realmError;
-//                [realm commitWriteTransaction:&realmError];
-//                
-//                if (realmError) {
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        //hint user error
-//                        NSLog(@"realmError: %@",realmError);
-//                    });
-//                    return;
-//                }
-//            }
-//        });
-//    }];
 }
 
 - (void)dealloc {
