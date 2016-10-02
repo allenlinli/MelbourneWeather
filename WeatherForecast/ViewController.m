@@ -14,11 +14,25 @@
 #import "WeatherDescriptionRealm.h"
 
 
-#import <Mantle.h>
+#import "Mantle.h"
 #import <Realm/Realm.h>
+#import "AFNetworking.h"
+#import "TSMessage.h"
+
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UILabel *currentTemp;
+@property (weak, nonatomic) IBOutlet UILabel *currentTempHigh;
+@property (weak, nonatomic) IBOutlet UILabel *currentTempLow;
+@property (weak, nonatomic) IBOutlet UILabel *currentWeatherDescription;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tempHigh;
+@property (weak, nonatomic) IBOutlet UILabel *tempLow;
+@property (weak, nonatomic) IBOutlet UILabel *weatherDescription;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+
 @property (strong, nonatomic) RLMNotificationToken *notificationToken;
 @end
 
@@ -27,8 +41,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+//    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
@@ -37,6 +51,14 @@
         __strong typeof(self) sSelf = wSelf;
         [sSelf.tableView reloadData];
     }];
+    
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        [TSMessage showNotificationWithTitle:@"Your Title"
+                                    subtitle:@"A description"
+                                        type:TSMessageNotificationTypeError];
+    }];
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     [self updateCurrentWeather];
     [self updateHourForecastWeather];

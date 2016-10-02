@@ -22,11 +22,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KRy-nL-atr">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lh7-QW-5fe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lh7-QW-5fe" customClass="WeatherTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="331" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lh7-QW-5fe" id="tvv-5m-kRd">
-                                            <frame key="frameInset" width="331" height="53"/>
+                                            <frame key="frameInset" width="331" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57F-Rs-WIz">
@@ -86,11 +86,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEelbourne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFD-GG-LqR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melbourne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFD-GG-LqR">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Onj-3g-FrL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,7 +156,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="KRy-nL-atr" id="Ayf-Aw-ehd"/>
+                        <outlet property="currentTemp" destination="BDU-BT-sgw" id="NAO-Py-fyz"/>
+                        <outlet property="currentTempHigh" destination="Nv6-9F-OiK" id="iWg-b2-1Ru"/>
+                        <outlet property="currentTempLow" destination="VmQ-xc-P6k" id="gv4-eh-DZn"/>
+                        <outlet property="currentWeatherDescription" destination="y5z-Iq-VhJ" id="X27-r3-rXw"/>
+                        <outlet property="tableView" destination="KRy-nL-atr" id="jul-EM-QfQ"/>
+                        <outlet property="tempHigh" destination="ctP-AS-tkX" id="kFa-pZ-D3f"/>
+                        <outlet property="tempLow" destination="57F-Rs-WIz" id="aY0-8g-aOo"/>
+                        <outlet property="time" destination="J5N-1v-ZOp" id="k11-5a-bG2"/>
+                        <outlet property="weatherDescription" destination="k3Q-lS-4pg" id="fdy-TL-oSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

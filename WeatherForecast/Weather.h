@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Mantle.h>
+#import "Mantle.h"
 
 // [Comment] I am not sure if making Weather a struct is better or not.
 
