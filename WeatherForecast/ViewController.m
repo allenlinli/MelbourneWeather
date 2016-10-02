@@ -17,7 +17,7 @@
 #import <Mantle.h>
 #import <Realm/Realm.h>
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) RLMNotificationToken *notificationToken;
 @end
@@ -26,6 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     
@@ -169,4 +172,21 @@
     [self.notificationToken stop];
 }
 
+#pragma MARK - TableView DataSource
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return nil;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+}
+
+#pragma MARK - TableView DataSource
+
 @end
+
+
