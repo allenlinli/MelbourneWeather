@@ -20,9 +20,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KRy-nL-atr">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lh7-QW-5fe" customClass="WeatherTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherTableViewCellID" id="Lh7-QW-5fe" customClass="WeatherTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="331" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lh7-QW-5fe" id="tvv-5m-kRd">
@@ -69,6 +69,8 @@
                                                     <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="57F-Rs-WIz" firstAttribute="leading" secondItem="KV0-1I-bXd" secondAttribute="trailing" constant="2" id="4Ip-KK-1bl"/>
                                                 <constraint firstItem="J5N-1v-ZOp" firstAttribute="leading" secondItem="tvv-5m-kRd" secondAttribute="leadingMargin" constant="4" id="Dti-9H-4pK"/>
@@ -76,8 +78,8 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="57F-Rs-WIz" secondAttribute="trailing" constant="10" id="QmW-F5-mMJ"/>
                                                 <constraint firstItem="J5N-1v-ZOp" firstAttribute="centerY" secondItem="tvv-5m-kRd" secondAttribute="centerY" id="SVk-Ma-jGO"/>
                                                 <constraint firstItem="k3Q-lS-4pg" firstAttribute="centerY" secondItem="tvv-5m-kRd" secondAttribute="centerY" id="Xno-fP-s2N"/>
-                                                <constraint firstItem="KV0-1I-bXd" firstAttribute="centerY" secondItem="tvv-5m-kRd" secondAttribute="centerY" id="ctP-AS-tkX"/>
                                                 <constraint firstItem="k3Q-lS-4pg" firstAttribute="leading" secondItem="J5N-1v-ZOp" secondAttribute="trailing" constant="6" id="kPA-nO-GzQ"/>
+                                                <constraint firstItem="KV0-1I-bXd" firstAttribute="centerY" secondItem="tvv-5m-kRd" secondAttribute="centerY" id="mw3-Yc-EWe"/>
                                                 <constraint firstItem="KV0-1I-bXd" firstAttribute="leading" secondItem="k3Q-lS-4pg" secondAttribute="trailing" constant="6" id="ruj-jQ-ozF"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -90,16 +92,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Onj-3g-FrL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostly Cloudly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5z-Iq-VhJ">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="CTK-m2-awR"/>
+                                    <constraint firstAttribute="height" constant="24" id="CTK-m2-awR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,7 +111,7 @@
                                     <constraint firstAttribute="height" constant="100" id="Zhy-vZ-2NR"/>
                                     <constraint firstAttribute="width" constant="100" id="h5I-xF-Zat"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="78"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="82"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -119,7 +121,7 @@
                                     <constraint firstAttribute="width" constant="24" id="Dkb-M8-KmC"/>
                                     <constraint firstAttribute="height" constant="24" id="cGL-eD-Imk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -129,7 +131,7 @@
                                     <constraint firstAttribute="height" constant="24" id="Est-Ek-Gmr"/>
                                     <constraint firstAttribute="width" constant="24" id="GEy-Db-tUq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -161,10 +163,6 @@
                         <outlet property="currentTempLow" destination="VmQ-xc-P6k" id="gv4-eh-DZn"/>
                         <outlet property="currentWeatherDescription" destination="y5z-Iq-VhJ" id="X27-r3-rXw"/>
                         <outlet property="tableView" destination="KRy-nL-atr" id="jul-EM-QfQ"/>
-                        <outlet property="tempHigh" destination="ctP-AS-tkX" id="kFa-pZ-D3f"/>
-                        <outlet property="tempLow" destination="57F-Rs-WIz" id="aY0-8g-aOo"/>
-                        <outlet property="time" destination="J5N-1v-ZOp" id="k11-5a-bG2"/>
-                        <outlet property="weatherDescription" destination="k3Q-lS-4pg" id="fdy-TL-oSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

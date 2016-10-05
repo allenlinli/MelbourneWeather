@@ -11,7 +11,7 @@
 
 @interface WeatherAPIClient : NSObject
 
-+ (id)sharedManager;
++ (id)sharedInstance;
 
 - (void)getCurrentMelbourneWeather:(void(^)(Weather *weather, NSError *error)) handler;
 - (void)getForecastMelbourneWeather:(void(^)(NSArray *weathers, NSError *error)) handler;

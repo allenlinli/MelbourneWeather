@@ -40,13 +40,13 @@ NSString* const APP_ID = @"c00917c0051ef0413b0ffe7c4326bd7e";
 
 @implementation WeatherAPIClient
 
-+ (id)sharedManager {
-    static WeatherAPIClient *sharedManager = nil;
++ (id)sharedInstance {
+    static WeatherAPIClient *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        sharedInstance = [[self alloc] init];
     });
-    return sharedManager;
+    return sharedInstance;
 }
 
 - (id)init {

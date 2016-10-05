@@ -24,6 +24,7 @@
 		E90BFBD71D9DD20E00FCE43C /* WeatherDescriptionRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBD61D9DD20E00FCE43C /* WeatherDescriptionRealm.m */; };
 		E9EA948F1DA1BB38009E5380 /* WeatherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EA948E1DA1BB38009E5380 /* WeatherTableViewCell.m */; };
 		E9EA94921DA1BCEC009E5380 /* WeatherTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EA94911DA1BCEC009E5380 /* WeatherTableView.m */; };
+		E9EA94951DA1D71C009E5380 /* WeatherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EA94941DA1D71C009E5380 /* WeatherViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		E9EA948E1DA1BB38009E5380 /* WeatherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherTableViewCell.m; sourceTree = "<group>"; };
 		E9EA94901DA1BCEC009E5380 /* WeatherTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherTableView.h; sourceTree = "<group>"; };
 		E9EA94911DA1BCEC009E5380 /* WeatherTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherTableView.m; sourceTree = "<group>"; };
+		E9EA94931DA1D71C009E5380 /* WeatherViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewModel.h; sourceTree = "<group>"; };
+		E9EA94941DA1D71C009E5380 /* WeatherViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,7 @@
 		E90BFBDA1D9DE55000FCE43C /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				E9EA94971DA1D871009E5380 /* ViewModel */,
 				E90BFB6E1D99C71E00FCE43C /* ViewController.h */,
 				E90BFB6F1D99C71E00FCE43C /* ViewController.m */,
 				E9EA948D1DA1BB38009E5380 /* WeatherTableViewCell.h */,
@@ -221,6 +225,15 @@
 				E9EA94911DA1BCEC009E5380 /* WeatherTableView.m */,
 			);
 			name = VC;
+			sourceTree = "<group>";
+		};
+		E9EA94971DA1D871009E5380 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9EA94931DA1D71C009E5380 /* WeatherViewModel.h */,
+				E9EA94941DA1D71C009E5380 /* WeatherViewModel.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9EA94951DA1D71C009E5380 /* WeatherViewModel.m in Sources */,
 				E90BFB701D99C71E00FCE43C /* ViewController.m in Sources */,
 				E90BFBD71D9DD20E00FCE43C /* WeatherDescriptionRealm.m in Sources */,
 				E9EA948F1DA1BB38009E5380 /* WeatherTableViewCell.m in Sources */,
