@@ -118,7 +118,7 @@ NSString * const KVOWeatherViewModelPropertyForecastHourWeathers = @"forecastHou
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WeatherTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WeatherTableViewCell"];
-    WeatherRealm *forecastHourWeatherRealm = [[[WeatherViewModel sharedInstance] forecastHourWeathers] objectAtIndex:indexPath.row];
+    WeatherRealm *forecastHourWeatherRealm = [[[[WeatherViewModel sharedInstance] dataSourceForForecastHourWeathers] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     [cell configureCellWithWeather:forecastHourWeatherRealm];
     
     return cell;
@@ -126,10 +126,37 @@ NSString * const KVOWeatherViewModelPropertyForecastHourWeathers = @"forecastHou
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[WeatherViewModel sharedInstance] forecastHourWeathers] count];
+    return [[[WeatherViewModel sharedInstance] dataSourceForForecastHourWeathers] objectAtIndex:section].count;
 }
 
-#pragma MARK - TableView DataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [[WeatherViewModel sharedInstance] sectionTitlesForForecastHourWeathers].count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[[WeatherViewModel sharedInstance] sectionTitlesForForecastHourWeathers] objectAtIndex:section];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *backgroundView=[[UIView alloc]initWithFrame:[tableView rectForHeaderInSection:section]];
+    backgroundView.backgroundColor=[UIColor whiteColor];
+//    backgroundView.alpha = 0.5;
+    
+    UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(15,0,180,CGRectGetHeight(backgroundView.frame))];
+    titleLabel.backgroundColor=[UIColor clearColor];
+    titleLabel.textColor = [UIColor colorWithRed:104.0/255.0 green:168.0/255.0 blue:204.0/255.0 alpha:1];
+    titleLabel.font = [UIFont fontWithName:@"Helvetica" size:19];
+    titleLabel.text = [[[WeatherViewModel sharedInstance] sectionTitlesForForecastHourWeathers] objectAtIndex:section];
+    
+    [backgroundView addSubview:titleLabel];
+    
+    return backgroundView;
+}
+
+
 
 @end
 

@@ -11,10 +11,17 @@
 #import "WeatherDescriptionRealm.h"
 
 @interface WeatherViewModel : NSObject
-@property (strong, nonatomic) RLMResults<WeatherRealm *> *currentWeathers;
-@property (strong, nonatomic) RLMResults<WeatherDescriptionRealm *> *currentWeatherDescriptions;
-@property (strong, nonatomic) RLMResults<WeatherRealm *> *forecastHourWeathers;
-@property (strong, nonatomic) RLMResults<WeatherDescriptionRealm *> *forecastHourWeatherDescriptions;
+
+// for current weather
+- (RLMResults<WeatherRealm *> *)currentWeathers;
+- (RLMResults<WeatherDescriptionRealm *> *)currentWeatherDescriptions;
+
+// for forecast hour weathers
+@property (strong, nonatomic, readonly) NSArray<NSArray *> *dataSourceForForecastHourWeathers;
+- (NSArray<NSString *> *)sectionTitlesForForecastHourWeathers;
+@property (strong, nonatomic, readonly) RLMResults<WeatherRealm *> *currentWeathers;
+@property (strong, nonatomic, readonly) RLMResults<WeatherDescriptionRealm *> *currentWeatherDescriptions;
+
 
 @property (strong, nonatomic) RLMNotificationToken *notificationToken;
 

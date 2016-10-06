@@ -145,7 +145,6 @@
 				E90BFBDA1D9DE55000FCE43C /* View */,
 				E90BFB941D99CA4D00FCE43C /* Manager */,
 				E9EA94971DA1D871009E5380 /* ViewModel */,
-				E90BFBCC1D99F2AB00FCE43C /* Model */,
 				E90BFB791D99C71E00FCE43C /* Info.plist */,
 				E90BFB681D99C71E00FCE43C /* Supporting Files */,
 			);
@@ -230,6 +229,7 @@
 		E9EA94971DA1D871009E5380 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E90BFBCC1D99F2AB00FCE43C /* Model */,
 				E9EA94931DA1D71C009E5380 /* WeatherViewModel.h */,
 				E9EA94941DA1D71C009E5380 /* WeatherViewModel.m */,
 			);
