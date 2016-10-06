@@ -1,16 +1,19 @@
 //
-//  WeatherDataManager.h
+//  WeatherAPIManager.h
 //  WeatherForecast
 //
-//  Created by allenlinli on 9/27/16.
+//  Created by allenlinli on 10/5/16.
 //  Copyright © 2016 Raccoonism. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Weather.h"
-
-typedef void (^WeatherManagerCompletionHandler)(Weather *weather, NSError *error);
 
 @interface WeatherManager : NSObject
-- (Weather *) getWeather:(WeatherManagerCompletionHandler) handler;
+
++ (id)sharedInstance;
+
+- (void)startPeriodicGetWeather;
+- (void)getCurrentMelbourneWeather:(void(^)(NSError *error)) handler;
+- (void)getForecastMelbourneWeather:(void(^)(NSError *error)) handler;
+
 @end

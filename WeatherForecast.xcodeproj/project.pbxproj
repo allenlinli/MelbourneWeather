@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		76CDA99172E37253A08D9C5C /* libPods-WeatherForecastTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1CB36567C406041DF783C4 /* libPods-WeatherForecastTests.a */; };
-		B9E2DC9C0A7E316B1E699497 /* libPods-WeatherForecast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E93E1AB8A0519E772CA0AE3F /* libPods-WeatherForecast.a */; };
+		65E695CD7F9AB7ABD32EBEB0 /* libPods-WeatherForecastTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEBFAEF36F42E7FBF2FB61B /* libPods-WeatherForecastTests.a */; };
+		CAEAB2683FB5CED9A22D3FF1 /* libPods-WeatherForecast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA170858565DD2EB9AB05CCD /* libPods-WeatherForecast.a */; };
 		E90BFB6A1D99C71E00FCE43C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB691D99C71E00FCE43C /* main.m */; };
 		E90BFB6D1D99C71E00FCE43C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB6C1D99C71E00FCE43C /* AppDelegate.m */; };
 		E90BFB701D99C71E00FCE43C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB6F1D99C71E00FCE43C /* ViewController.m */; };
@@ -18,7 +18,13 @@
 		E90BFB831D99C71F00FCE43C /* WeatherForecastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB821D99C71F00FCE43C /* WeatherForecastTests.m */; };
 		E90BFB931D99CA4900FCE43C /* WeatherAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB921D99CA4900FCE43C /* WeatherAPIClient.m */; };
 		E90BFB971D99D02D00FCE43C /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFB961D99D02D00FCE43C /* Weather.m */; };
-		E90BFBCB1D99F29A00FCE43C /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBCA1D99F29A00FCE43C /* WeatherManager.m */; };
+		E90BFBCE1D9A51D600FCE43C /* MTLJSONAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */; };
+		E90BFBD11D9BB6F700FCE43C /* WeatherDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */; };
+		E90BFBD41D9DCAAA00FCE43C /* WeatherRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBD31D9DCAAA00FCE43C /* WeatherRealm.m */; };
+		E90BFBD71D9DD20E00FCE43C /* WeatherDescriptionRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E90BFBD61D9DD20E00FCE43C /* WeatherDescriptionRealm.m */; };
+		E999EF701DA4B1BE0045D3DC /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E999EF6F1DA4B1BE0045D3DC /* WeatherManager.m */; };
+		E9EA948F1DA1BB38009E5380 /* WeatherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EA948E1DA1BB38009E5380 /* WeatherTableViewCell.m */; };
+		E9EA94951DA1D71C009E5380 /* WeatherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EA94941DA1D71C009E5380 /* WeatherViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,9 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2EEBFAEF36F42E7FBF2FB61B /* libPods-WeatherForecastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D7EBE40DBCAE3F59A0D304 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		80CD596E95157FDED3118196 /* Pods-WeatherForecastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecastTests/Pods-WeatherForecastTests.release.xcconfig"; sourceTree = "<group>"; };
 		88B583D9CDA15599E5ACCDB7 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
+		AA170858565DD2EB9AB05CCD /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D4A7E6C8BF9429F4B5395 /* Pods-WeatherForecastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecastTests/Pods-WeatherForecastTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E90BFB651D99C71E00FCE43C /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90BFB691D99C71E00FCE43C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,10 +61,20 @@
 		E90BFB921D99CA4900FCE43C /* WeatherAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPIClient.m; sourceTree = "<group>"; };
 		E90BFB951D99D02D00FCE43C /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
 		E90BFB961D99D02D00FCE43C /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
-		E90BFBC91D99F29A00FCE43C /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherManager.h; sourceTree = "<group>"; };
-		E90BFBCA1D99F29A00FCE43C /* WeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherManager.m; sourceTree = "<group>"; };
-		E93E1AB8A0519E772CA0AE3F /* libPods-WeatherForecast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE1CB36567C406041DF783C4 /* libPods-WeatherForecastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherForecastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLJSONAdapterTests.m; sourceTree = "<group>"; };
+		E90BFBCF1D9BB6F700FCE43C /* WeatherDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDescription.h; sourceTree = "<group>"; };
+		E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDescription.m; sourceTree = "<group>"; };
+		E90BFBD21D9DCAAA00FCE43C /* WeatherRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherRealm.h; sourceTree = "<group>"; };
+		E90BFBD31D9DCAAA00FCE43C /* WeatherRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherRealm.m; sourceTree = "<group>"; };
+		E90BFBD51D9DD20E00FCE43C /* WeatherDescriptionRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDescriptionRealm.h; sourceTree = "<group>"; };
+		E90BFBD61D9DD20E00FCE43C /* WeatherDescriptionRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDescriptionRealm.m; sourceTree = "<group>"; };
+		E999EF6E1DA4B1BE0045D3DC /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherManager.h; sourceTree = "<group>"; };
+		E999EF6F1DA4B1BE0045D3DC /* WeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherManager.m; sourceTree = "<group>"; };
+		E9A1D2D71D9F48D2006541D0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E9EA948D1DA1BB38009E5380 /* WeatherTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherTableViewCell.h; sourceTree = "<group>"; };
+		E9EA948E1DA1BB38009E5380 /* WeatherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherTableViewCell.m; sourceTree = "<group>"; };
+		E9EA94931DA1D71C009E5380 /* WeatherViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewModel.h; sourceTree = "<group>"; };
+		E9EA94941DA1D71C009E5380 /* WeatherViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9E2DC9C0A7E316B1E699497 /* libPods-WeatherForecast.a in Frameworks */,
+				CAEAB2683FB5CED9A22D3FF1 /* libPods-WeatherForecast.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76CDA99172E37253A08D9C5C /* libPods-WeatherForecastTests.a in Frameworks */,
+				65E695CD7F9AB7ABD32EBEB0 /* libPods-WeatherForecastTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,8 +111,8 @@
 		598EC9A0BB8CF2B2A7241A97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E93E1AB8A0519E772CA0AE3F /* libPods-WeatherForecast.a */,
-				EE1CB36567C406041DF783C4 /* libPods-WeatherForecastTests.a */,
+				AA170858565DD2EB9AB05CCD /* libPods-WeatherForecast.a */,
+				2EEBFAEF36F42E7FBF2FB61B /* libPods-WeatherForecastTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,15 +140,11 @@
 		E90BFB671D99C71E00FCE43C /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
-				E90BFB6B1D99C71E00FCE43C /* AppDelegate.h */,
-				E90BFB6C1D99C71E00FCE43C /* AppDelegate.m */,
-				E90BFB6E1D99C71E00FCE43C /* ViewController.h */,
-				E90BFB6F1D99C71E00FCE43C /* ViewController.m */,
 				E90BFB711D99C71E00FCE43C /* Main.storyboard */,
-				E90BFB741D99C71E00FCE43C /* Assets.xcassets */,
-				E90BFB761D99C71E00FCE43C /* LaunchScreen.storyboard */,
-				E90BFBCC1D99F2AB00FCE43C /* Model */,
+				E9A1D2D71D9F48D2006541D0 /* Constants.h */,
+				E90BFBDA1D9DE55000FCE43C /* View */,
 				E90BFB941D99CA4D00FCE43C /* Manager */,
+				E9EA94971DA1D871009E5380 /* ViewModel */,
 				E90BFB791D99C71E00FCE43C /* Info.plist */,
 				E90BFB681D99C71E00FCE43C /* Supporting Files */,
 			);
@@ -140,6 +154,10 @@
 		E90BFB681D99C71E00FCE43C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E90BFB6B1D99C71E00FCE43C /* AppDelegate.h */,
+				E90BFB6C1D99C71E00FCE43C /* AppDelegate.m */,
+				E90BFB741D99C71E00FCE43C /* Assets.xcassets */,
+				E90BFB761D99C71E00FCE43C /* LaunchScreen.storyboard */,
 				E90BFB691D99C71E00FCE43C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -149,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				E90BFB821D99C71F00FCE43C /* WeatherForecastTests.m */,
+				E90BFBCD1D9A51D600FCE43C /* MTLJSONAdapterTests.m */,
 				E90BFB841D99C71F00FCE43C /* Info.plist */,
 			);
 			path = WeatherForecastTests;
@@ -159,8 +178,8 @@
 			children = (
 				E90BFB911D99CA4900FCE43C /* WeatherAPIClient.h */,
 				E90BFB921D99CA4900FCE43C /* WeatherAPIClient.m */,
-				E90BFBC91D99F29A00FCE43C /* WeatherManager.h */,
-				E90BFBCA1D99F29A00FCE43C /* WeatherManager.m */,
+				E999EF6E1DA4B1BE0045D3DC /* WeatherManager.h */,
+				E999EF6F1DA4B1BE0045D3DC /* WeatherManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -168,10 +187,53 @@
 		E90BFBCC1D99F2AB00FCE43C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E90BFB951D99D02D00FCE43C /* Weather.h */,
-				E90BFB961D99D02D00FCE43C /* Weather.m */,
+				E90BFBD91D9DD23300FCE43C /* Mantle */,
+				E90BFBD81D9DD22900FCE43C /* Realm */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E90BFBD81D9DD22900FCE43C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				E90BFBD21D9DCAAA00FCE43C /* WeatherRealm.h */,
+				E90BFBD31D9DCAAA00FCE43C /* WeatherRealm.m */,
+				E90BFBD51D9DD20E00FCE43C /* WeatherDescriptionRealm.h */,
+				E90BFBD61D9DD20E00FCE43C /* WeatherDescriptionRealm.m */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
+		E90BFBD91D9DD23300FCE43C /* Mantle */ = {
+			isa = PBXGroup;
+			children = (
+				E90BFB951D99D02D00FCE43C /* Weather.h */,
+				E90BFB961D99D02D00FCE43C /* Weather.m */,
+				E90BFBCF1D9BB6F700FCE43C /* WeatherDescription.h */,
+				E90BFBD01D9BB6F700FCE43C /* WeatherDescription.m */,
+			);
+			name = Mantle;
+			sourceTree = "<group>";
+		};
+		E90BFBDA1D9DE55000FCE43C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E90BFB6E1D99C71E00FCE43C /* ViewController.h */,
+				E90BFB6F1D99C71E00FCE43C /* ViewController.m */,
+				E9EA948D1DA1BB38009E5380 /* WeatherTableViewCell.h */,
+				E9EA948E1DA1BB38009E5380 /* WeatherTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E9EA94971DA1D871009E5380 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E90BFBCC1D99F2AB00FCE43C /* Model */,
+				E9EA94931DA1D71C009E5380 /* WeatherViewModel.h */,
+				E9EA94941DA1D71C009E5380 /* WeatherViewModel.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,10 +439,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9EA94951DA1D71C009E5380 /* WeatherViewModel.m in Sources */,
 				E90BFB701D99C71E00FCE43C /* ViewController.m in Sources */,
+				E90BFBD71D9DD20E00FCE43C /* WeatherDescriptionRealm.m in Sources */,
+				E999EF701DA4B1BE0045D3DC /* WeatherManager.m in Sources */,
+				E9EA948F1DA1BB38009E5380 /* WeatherTableViewCell.m in Sources */,
 				E90BFB6D1D99C71E00FCE43C /* AppDelegate.m in Sources */,
-				E90BFBCB1D99F29A00FCE43C /* WeatherManager.m in Sources */,
+				E90BFBD41D9DCAAA00FCE43C /* WeatherRealm.m in Sources */,
 				E90BFB6A1D99C71E00FCE43C /* main.m in Sources */,
+				E90BFBD11D9BB6F700FCE43C /* WeatherDescription.m in Sources */,
 				E90BFB931D99CA4900FCE43C /* WeatherAPIClient.m in Sources */,
 				E90BFB971D99D02D00FCE43C /* Weather.m in Sources */,
 			);
@@ -391,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E90BFB831D99C71F00FCE43C /* WeatherForecastTests.m in Sources */,
+				E90BFBCE1D9A51D600FCE43C /* MTLJSONAdapterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +510,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -489,6 +558,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
