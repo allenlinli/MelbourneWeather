@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Mantle.h"
+#import "WeatherDescription.h"
 
-// [Comment] I am not sure if making Weather a struct is better or not.
 
 @interface Weather : MTLModel <MTLJSONSerializing>
 

@@ -7,7 +7,6 @@
 //
 
 #import "Weather.h"
-#import "WeatherDescription.h"
 
 @implementation Weather
 

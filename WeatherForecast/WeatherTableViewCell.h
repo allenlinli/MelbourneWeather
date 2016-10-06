@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeatherRealm.h"
+
+//NSString * const WEATHER_TABLEVIEWCELL_ID = @"WeatherTableViewCell";
+
 
 @interface WeatherTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *tempLowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tempHighLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) WeatherRealm *weatherRealm;
 
+- (void)configureCellWithWeather:(WeatherRealm *)weather;
 @end
